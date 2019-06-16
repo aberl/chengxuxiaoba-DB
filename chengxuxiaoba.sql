@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80015
 File Encoding         : 65001
 
-Date: 2019-06-02 21:58:19
+Date: 2019-06-16 22:09:08
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,7 +32,7 @@ CREATE TABLE `account` (
   `updateDateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of account
@@ -48,7 +48,8 @@ INSERT INTO `account` VALUES ('20', 'WWOTTF', null, '15001112633', '111111', nul
 INSERT INTO `account` VALUES ('22', 'JLZGPQ', null, '13720004712', 'password', null, null, '1', '2019-05-18 21:35:39', '2019-05-18 21:35:39');
 INSERT INTO `account` VALUES ('26', 'PHQXWT', null, '13720004711', 'password', null, null, '-1', '2019-05-19 17:58:08', '2019-05-19 17:58:08');
 INSERT INTO `account` VALUES ('27', 'UAFGPT', null, '13000001272', '123456', null, null, '1', '2019-05-21 21:54:25', '2019-05-21 21:54:25');
-INSERT INTO `account` VALUES ('28', 'BYAJHN', null, '13000001272', '123456', null, null, '1', '2019-05-21 21:54:25', '2019-05-21 21:54:25');
+INSERT INTO `account` VALUES ('28', 'BYAJHN', null, '13000001273', '123456', null, null, '1', '2019-05-21 21:54:25', '2019-05-21 21:54:25');
+INSERT INTO `account` VALUES ('29', 'YZNCWJ', null, '13441112728', '1qaz2wsx', null, null, '1', '2019-06-03 22:26:28', '2019-06-03 22:26:28');
 
 -- ----------------------------
 -- Table structure for accountmessage_relationship
@@ -96,7 +97,7 @@ CREATE TABLE `accountrole_relationship` (
   `updateDateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_account` (`accountId`,`roleId`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of accountrole_relationship
@@ -108,6 +109,9 @@ INSERT INTO `accountrole_relationship` VALUES ('14', '4', '3', '1', '2019-05-19 
 INSERT INTO `accountrole_relationship` VALUES ('28', '26', '3', '1', '2019-05-21 21:43:11', '2019-05-21 21:43:11');
 INSERT INTO `accountrole_relationship` VALUES ('32', '6', '1', '1', '2019-05-21 21:51:47', '2019-05-21 21:51:47');
 INSERT INTO `accountrole_relationship` VALUES ('33', '6', '3', '1', '2019-05-21 21:51:47', '2019-05-21 21:51:47');
+INSERT INTO `accountrole_relationship` VALUES ('35', '5', '1', '1', '2019-06-12 22:16:42', '2019-06-12 22:16:42');
+INSERT INTO `accountrole_relationship` VALUES ('47', '28', '4', '1', '2019-06-13 21:36:12', '2019-06-13 21:36:12');
+INSERT INTO `accountrole_relationship` VALUES ('48', '29', '4', '1', '2019-06-13 21:36:23', '2019-06-13 21:36:23');
 
 -- ----------------------------
 -- Table structure for accountviptimerange
@@ -123,12 +127,13 @@ CREATE TABLE `accountviptimerange` (
   `updateDateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_account` (`accountId`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of accountviptimerange
 -- ----------------------------
 INSERT INTO `accountviptimerange` VALUES ('1', '26', '2019-05-01 08:00:00', '2019-06-29 08:00:00', '1', '2019-05-19 22:52:50', '2019-05-21 21:43:11');
+INSERT INTO `accountviptimerange` VALUES ('2', '5', '2019-06-01 08:00:00', '2019-06-30 08:00:00', '1', '2019-06-12 22:16:42', '2019-06-12 22:16:42');
 
 -- ----------------------------
 -- Table structure for answer
@@ -142,13 +147,63 @@ CREATE TABLE `answer` (
   `status` int(11) NOT NULL DEFAULT '1',
   `createDateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of answer
 -- ----------------------------
 INSERT INTO `answer` VALUES ('1', '1', 'content', '4', '1', '2019-03-28 21:51:29');
 INSERT INTO `answer` VALUES ('2', '1', 'content', '4', '1', '2019-03-28 21:51:34');
+INSERT INTO `answer` VALUES ('23', '1', 'content', '4', '1', '2019-06-08 21:01:06');
+INSERT INTO `answer` VALUES ('24', '1', 'content', '5', '1', '2019-06-08 21:01:42');
+INSERT INTO `answer` VALUES ('25', '1', 'content', '6', '1', '2019-06-08 21:01:59');
+INSERT INTO `answer` VALUES ('26', '1', 'content', '7', '1', '2019-06-08 21:02:09');
+INSERT INTO `answer` VALUES ('27', '1', 'content', '11', '1', '2019-06-08 21:02:53');
+INSERT INTO `answer` VALUES ('28', '11', '层代码，但是对Quartz有了一个比较清晰的概念了，谢谢老师的点点滴滴多多多多多层代码，但是对Quartz有了一个比较清晰的概念了，谢谢老师的点点滴滴多多多多多层代码，但是对Quartz有了一个比较清晰的概念了，谢谢老师的点点滴滴多多多多多层代码，但是对Quartz有了一个比较清晰的概念了，谢谢老师的点点滴滴多多多多多层代码，但是对Quartz有了一个比较清晰的概念了，谢谢老师的点点滴滴多多多多多', '11', '1', '2019-06-08 21:03:52');
+INSERT INTO `answer` VALUES ('29', '11', '层代码，但是对Quartz有了一个比较清晰的概念了，谢谢老师的点点滴滴多多多多多层代码，但是对Quartz有了一个比较清晰的概念了，谢谢老师的点点滴滴多多多多多层代码，但是对Quartz有了一个比较清晰的概念了，谢谢老师的点点滴滴多多多多多层代码，但是对Quartz有了一个比较清晰的概念了，谢谢老师的点点滴滴多多多多多层代码，但是对Quartz有了一个比较清晰的概念了，谢谢老师的点点滴滴多多多多多', '11', '1', '2019-06-08 22:46:36');
+INSERT INTO `answer` VALUES ('30', '12', '2121212', '11', '1', '2019-06-08 22:49:36');
+INSERT INTO `answer` VALUES ('31', '27', '1212', '6', '1', '2019-06-10 22:23:12');
+INSERT INTO `answer` VALUES ('32', '29', '3333', '6', '1', '2019-06-10 22:23:18');
+INSERT INTO `answer` VALUES ('33', '26', '3333333', '6', '1', '2019-06-10 22:23:30');
+INSERT INTO `answer` VALUES ('34', '11', '333333333', '6', '1', '2019-06-10 22:24:55');
+INSERT INTO `answer` VALUES ('35', '11', '4444', '6', '1', '2019-06-10 22:27:17');
+INSERT INTO `answer` VALUES ('36', '11', 'qqqqqq', '6', '1', '2019-06-10 22:27:42');
+INSERT INTO `answer` VALUES ('37', '11', 'www', '6', '1', '2019-06-10 22:33:58');
+INSERT INTO `answer` VALUES ('38', '12', 'e3333', '6', '1', '2019-06-10 22:34:04');
+INSERT INTO `answer` VALUES ('39', '11', '4444', '6', '1', '2019-06-10 22:34:14');
+INSERT INTO `answer` VALUES ('40', '11', 'eeee', '6', '1', '2019-06-10 22:35:40');
+INSERT INTO `answer` VALUES ('41', '11', '44443', '6', '1', '2019-06-10 22:38:13');
+INSERT INTO `answer` VALUES ('42', '11', '3333', '6', '1', '2019-06-12 21:34:41');
+INSERT INTO `answer` VALUES ('43', '11', '4444', '6', '1', '2019-06-12 21:34:47');
+INSERT INTO `answer` VALUES ('44', '11', '43', '6', '1', '2019-06-12 21:35:11');
+INSERT INTO `answer` VALUES ('45', '11', '3', '6', '1', '2019-06-12 21:35:17');
+INSERT INTO `answer` VALUES ('46', '11', '333', '6', '1', '2019-06-12 21:36:10');
+INSERT INTO `answer` VALUES ('47', '11', '444', '6', '1', '2019-06-12 21:36:14');
+INSERT INTO `answer` VALUES ('48', '11', '433', '6', '1', '2019-06-12 21:36:45');
+INSERT INTO `answer` VALUES ('49', '11', '4444', '6', '1', '2019-06-12 21:37:04');
+INSERT INTO `answer` VALUES ('50', '11', '5555', '6', '1', '2019-06-12 21:37:09');
+INSERT INTO `answer` VALUES ('51', '11', '2222', '6', '1', '2019-06-12 21:40:36');
+INSERT INTO `answer` VALUES ('52', '11', '3333', '6', '1', '2019-06-12 21:40:41');
+INSERT INTO `answer` VALUES ('53', '11', '222', '6', '1', '2019-06-12 21:42:18');
+INSERT INTO `answer` VALUES ('54', '11', '333', '6', '1', '2019-06-12 21:43:02');
+INSERT INTO `answer` VALUES ('55', '11', '2222', '6', '1', '2019-06-12 21:43:47');
+INSERT INTO `answer` VALUES ('56', '11', '3333', '6', '1', '2019-06-12 21:43:51');
+INSERT INTO `answer` VALUES ('57', '12', '4444', '6', '1', '2019-06-12 21:43:54');
+INSERT INTO `answer` VALUES ('58', '11', '3333', '6', '1', '2019-06-12 21:51:42');
+INSERT INTO `answer` VALUES ('59', '11', '333', '6', '1', '2019-06-12 21:55:22');
+INSERT INTO `answer` VALUES ('60', '26', '相信自己', '6', '1', '2019-06-12 21:56:07');
+INSERT INTO `answer` VALUES ('61', '26', '相信自己', '6', '1', '2019-06-12 21:56:20');
+INSERT INTO `answer` VALUES ('62', '25', '3333', '6', '1', '2019-06-12 21:56:59');
+INSERT INTO `answer` VALUES ('63', '25', 'RRRRR', '6', '1', '2019-06-12 21:57:05');
+INSERT INTO `answer` VALUES ('64', '25', '33333T', '6', '1', '2019-06-12 21:57:26');
+INSERT INTO `answer` VALUES ('65', '27', '相信自己', '6', '1', '2019-06-12 21:57:47');
+INSERT INTO `answer` VALUES ('66', '28', '恩恩', '6', '1', '2019-06-12 21:58:02');
+INSERT INTO `answer` VALUES ('67', '28', '333', '6', '1', '2019-06-12 21:58:23');
+INSERT INTO `answer` VALUES ('68', '28', '44444', '6', '1', '2019-06-12 21:58:30');
+INSERT INTO `answer` VALUES ('69', '24', '嗯嗯嗯', '6', '1', '2019-06-12 21:58:57');
+INSERT INTO `answer` VALUES ('70', '30', '嗯嗯嗯呃', '6', '1', '2019-06-12 22:02:00');
+INSERT INTO `answer` VALUES ('71', '31', '好的', '6', '1', '2019-06-12 22:06:19');
+INSERT INTO `answer` VALUES ('72', '32', '讲文明属性风', '6', '1', '2019-06-12 22:07:02');
 
 -- ----------------------------
 -- Table structure for course
@@ -216,20 +271,24 @@ CREATE TABLE `evaluate` (
   `status` int(11) NOT NULL DEFAULT '1',
   `createDateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of evaluate
 -- ----------------------------
-INSERT INTO `evaluate` VALUES ('4', '1', '棒棒的', '2', '4', '1', '1', '2019-03-25 22:37:24');
-INSERT INTO `evaluate` VALUES ('5', '1', '赞', '3', '5', '2', '1', '2019-03-25 22:38:21');
-INSERT INTO `evaluate` VALUES ('6', '1', '很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位', '5', '5', '3', '1', '2019-03-25 22:38:41');
+INSERT INTO `evaluate` VALUES ('4', '1', '棒棒的', '2', '4', '1', '-1', '2019-03-25 22:37:24');
+INSERT INTO `evaluate` VALUES ('5', '1', '赞', '3', '5', '2', '-1', '2019-03-25 22:38:21');
+INSERT INTO `evaluate` VALUES ('6', '1', '很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位很到位', '5', '5', '3', '-1', '2019-03-25 22:38:41');
 INSERT INTO `evaluate` VALUES ('7', '2', 'content5', '5', '5', '0', '1', '2019-06-02 21:19:04');
 INSERT INTO `evaluate` VALUES ('8', '2', '驱蚊器无群驱蚊器无群驱蚊器无群驱蚊器无群', '4', '6', '0', '1', '2019-06-02 21:28:45');
 INSERT INTO `evaluate` VALUES ('9', '2', 'getEvaluationListgetEvaluationListgetEvaluationList', '5', '6', '0', '1', '2019-06-02 21:38:19');
 INSERT INTO `evaluate` VALUES ('10', '2', '棒棒的棒棒的棒棒的棒棒的棒棒的棒棒的棒棒的', '5', '6', '0', '1', '2019-06-02 21:47:02');
-INSERT INTO `evaluate` VALUES ('11', '1', '棒棒的棒棒的棒棒的棒棒的棒棒的棒棒的', '4', '6', '0', '1', '2019-06-02 21:49:58');
-INSERT INTO `evaluate` VALUES ('12', '1', '1300000127213000001272130000012721300000127213000001272', '5', '27', '0', '1', '2019-06-02 21:55:50');
+INSERT INTO `evaluate` VALUES ('11', '1', '棒棒的棒棒的棒棒的棒棒的棒棒的棒棒的', '4', '6', '0', '-1', '2019-06-02 21:49:58');
+INSERT INTO `evaluate` VALUES ('12', '1', '1300000127213000001272130000012721300000127213000001272', '5', '27', '0', '-1', '2019-06-02 21:55:50');
+INSERT INTO `evaluate` VALUES ('13', '1', '13000001273130000012731300000127313000001273', '5', '28', '0', '-1', '2019-06-03 22:08:58');
+INSERT INTO `evaluate` VALUES ('14', '1', '15001112727150011127271500111272715001112727', '5', '7', '0', '1', '2019-06-03 22:10:13');
+INSERT INTO `evaluate` VALUES ('15', '1', '428042804280428042804280', '2', '29', '0', '1', '2019-06-03 22:26:49');
+INSERT INTO `evaluate` VALUES ('16', '2', '您觉得视频怎么样您觉得视频怎么样您觉得视频怎么样', '5', '29', '0', '1', '2019-06-04 20:59:36');
 
 -- ----------------------------
 -- Table structure for issue
@@ -245,21 +304,24 @@ CREATE TABLE `issue` (
   `status` int(11) NOT NULL DEFAULT '1',
   `createDateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of issue
 -- ----------------------------
-INSERT INTO `issue` VALUES ('1', '22', 'name', 'content', '4', '2', '1', '2019-03-27 22:16:15');
+INSERT INTO `issue` VALUES ('1', '22', 'name', 'content', '4', '7', '1', '2019-03-27 22:16:15');
 INSERT INTO `issue` VALUES ('2', '22', 'name', 'content', '4', '0', '1', '2019-03-28 21:15:11');
-INSERT INTO `issue` VALUES ('3', '22', 'name', 'content', '4', '0', '1', '2019-03-28 21:15:13');
-INSERT INTO `issue` VALUES ('4', '22', 'name', 'content', '4', '0', '1', '2019-03-28 21:15:14');
-INSERT INTO `issue` VALUES ('5', '22', 'name', 'content', '4', '0', '1', '2019-03-28 21:15:15');
-INSERT INTO `issue` VALUES ('6', '22', 'name', 'content', '4', '0', '1', '2019-03-28 21:15:16');
-INSERT INTO `issue` VALUES ('7', '22', 'name', 'content', '4', '0', '1', '2019-03-28 21:15:17');
-INSERT INTO `issue` VALUES ('8', '22', 'name', 'content', '4', '0', '1', '2019-03-28 21:15:17');
-INSERT INTO `issue` VALUES ('9', '22', 'name', 'content', '4', '0', '1', '2019-03-28 21:15:18');
-INSERT INTO `issue` VALUES ('10', '22', 'name', 'content', '4', '0', '1', '2019-03-28 21:15:19');
+INSERT INTO `issue` VALUES ('11', '1', 'name', '超级赞，看到项目组里用这个，我这个新手完全摸不着头脑，看不懂。现在虽然还没看底层代码，但是对Quartz有了一个比较清晰的概念了，谢谢老师的点点滴滴多多多多多', '4', '25', '1', '2019-06-03 22:16:26');
+INSERT INTO `issue` VALUES ('12', '1', 'name', 'content', '4', '2', '1', '2019-06-04 21:55:33');
+INSERT INTO `issue` VALUES ('24', '1', '', 'qwqwqw', '29', '1', '1', '2019-06-05 22:42:58');
+INSERT INTO `issue` VALUES ('25', '1', '', '55555', '29', '3', '1', '2019-06-05 22:44:27');
+INSERT INTO `issue` VALUES ('26', '1', '', '，我这个新手完全', '29', '3', '1', '2019-06-08 20:56:20');
+INSERT INTO `issue` VALUES ('27', '1', '', '超级赞，看到项目组里用这个，我这个新手完', '29', '2', '1', '2019-06-08 21:28:55');
+INSERT INTO `issue` VALUES ('28', '1', '', '芭芭拉啦啦', '29', '3', '1', '2019-06-08 22:50:12');
+INSERT INTO `issue` VALUES ('29', '1', '', '我这个我这个', '6', '1', '1', '2019-06-10 21:36:46');
+INSERT INTO `issue` VALUES ('30', '1', '', '请赐教请赐教', '6', '1', '1', '2019-06-12 22:01:50');
+INSERT INTO `issue` VALUES ('31', '2', '', 'JDK讲的再深入一点', '6', '1', '1', '2019-06-12 22:06:08');
+INSERT INTO `issue` VALUES ('32', '2', '', '啪啪啊啊啊', '6', '1', '1', '2019-06-12 22:06:46');
 
 -- ----------------------------
 -- Table structure for message
@@ -312,6 +374,27 @@ CREATE TABLE `paymentrecord` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for permission
+-- ----------------------------
+DROP TABLE IF EXISTS `permission`;
+CREATE TABLE `permission` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of permission
+-- ----------------------------
+INSERT INTO `permission` VALUES ('1', '每日免费观看3段视频', '1');
+INSERT INTO `permission` VALUES ('2', '无限制观看视频', '1');
+INSERT INTO `permission` VALUES ('3', '无限制下载任何资料', '1');
+INSERT INTO `permission` VALUES ('4', '视频快进播放', '1');
+INSERT INTO `permission` VALUES ('5', '在线提交评论', '1');
+INSERT INTO `permission` VALUES ('6', '在线向老师提问', '1');
+
+-- ----------------------------
 -- Table structure for role
 -- ----------------------------
 DROP TABLE IF EXISTS `role`;
@@ -320,14 +403,31 @@ CREATE TABLE `role` (
   `name` varchar(255) NOT NULL,
   `statue` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of role
 -- ----------------------------
-INSERT INTO `role` VALUES ('1', 'admin', '1');
-INSERT INTO `role` VALUES ('2', 'member', '1');
-INSERT INTO `role` VALUES ('3', 'vipmember', '1');
+INSERT INTO `role` VALUES ('1', 'vistor', '1');
+INSERT INTO `role` VALUES ('2', 'vipmember', '1');
+INSERT INTO `role` VALUES ('3', 'admin', '1');
+
+-- ----------------------------
+-- Table structure for rolepermission_relationship
+-- ----------------------------
+DROP TABLE IF EXISTS `rolepermission_relationship`;
+CREATE TABLE `rolepermission_relationship` (
+  `id` int(11) NOT NULL,
+  `role` int(11) DEFAULT NULL,
+  `permission` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `createDateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of rolepermission_relationship
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for uploadfile
@@ -400,7 +500,7 @@ CREATE TABLE `validationcode` (
   `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `isActive` bit(1) NOT NULL DEFAULT b'1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of validationcode
@@ -440,6 +540,7 @@ INSERT INTO `validationcode` VALUES ('46', 'register', '15001112633', '2164', '2
 INSERT INTO `validationcode` VALUES ('47', 'register', '13720004712', '5573', '2019-05-18 22:01:50', '2019-05-18 21:31:50', '\0');
 INSERT INTO `validationcode` VALUES ('48', 'register', '13720004711', '3202', '2019-05-19 18:21:28', '2019-05-19 17:51:28', '\0');
 INSERT INTO `validationcode` VALUES ('49', 'register', '13000001272', '2050', '2019-05-21 22:23:37', '2019-05-21 21:53:37', '\0');
+INSERT INTO `validationcode` VALUES ('50', 'register', '13441112728', '4280', '2019-06-03 22:55:42', '2019-06-03 22:25:42', '\0');
 
 -- ----------------------------
 -- Table structure for video
@@ -465,10 +566,10 @@ CREATE TABLE `video` (
 -- ----------------------------
 -- Records of video
 -- ----------------------------
-INSERT INTO `video` VALUES ('1', '1', '5575c293-cca3-4418-84b4-5e0a9c8f5618.mp4', 'HELLO JAVA', '[\"08836f45-b53e-47e4-b613-62e30a3dc061.txt\",\"617b3cc3-75ff-4a10-88b5-22657330744f.txt\"]', '120', 'JAVA初体验，环境讲解，用途等等', null, '1', '2', '1', '2019-05-14 21:25:42');
-INSERT INTO `video` VALUES ('2', '1', '83edcaa6-394c-4098-9769-763bd442ce14.mp4', 'JDK', '[]', '12', 'JDK (Java Development Kit)\nJDK 是整个Java的核心，包括了Java运行环境（Java Runtime Envirnment），一堆Java工具和Java基础的类库(rt.jar)。不论什么Java应用服务器实质都是内置了某个版本的JDK。因此掌握 JDK是学好Java的第一步。最主流的JDK是Sun公司发布的JDK，除了Sun之外，还有很多公司和组织都开发了自己的JDK，例如IBM公司开发的JDK，BEA公司的Jrocket，还有GNU组织开发的JDK等等。其中IBM的JDK包含的JVM（Java Virtual Machine）运行效率要比Sun JDK包含的JVM高出许多。而专门运行在x86平台的Jrocket在服务端运行效率也要比Sun JDK好很多。但不管怎么说，我们还是需要先把Sun JDK掌握好。', null, '0', '0', '1', '2019-05-27 21:55:09');
-INSERT INTO `video` VALUES ('3', '1', '5572d27a-da5f-4236-8b39-4290962d8994.mp4', 'Tomcat', '[]', '12', 'Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，Tomcat是Apache 软件基金会（Apache Software Foundation）的Jakarta 项目中的一个核心项目，它早期的名称为catalina，后来由Apache、Sun 和其他一些公司及个人共同开发而成，并更名为Tomcat。Tomcat 是一个小型的轻量级应用服务器，在中小型系统和并发访问用户不是很多的场合下被普遍使用，是开发和调试JSP 程序的首选，因为Tomcat 技术先进、性能稳定，成为目前比较流行的Web 应用服务器。Tomcat是应用（java）服务器，它只是一个servlet容器，是Apache的扩展，但它是独立运行的。目前最新的版本为Tomcat 8.0.24 Released。', null, '0', '0', '1', '2019-05-28 21:25:07');
-INSERT INTO `video` VALUES ('4', '1', 'aefa8e93-44c9-4e58-b7ad-89cad81a4a8e.mp4', '面向对象和面向过程', '[]', '12', '面向对象和面向过程', null, '0', '0', '1', '2019-05-28 21:35:55');
-INSERT INTO `video` VALUES ('5', '1', '4d9fd5a9-b9f4-4ad4-86aa-b7a46d8e5a9b.mp4', '继承', '[]', '11', '继承', null, '0', '0', '1', '2019-05-28 21:36:32');
+INSERT INTO `video` VALUES ('1', '1', '5575c293-cca3-4418-84b4-5e0a9c8f5618.mp4', 'HELLO JAVA', '[\"08836f45-b53e-47e4-b613-62e30a3dc061.txt\",\"617b3cc3-75ff-4a10-88b5-22657330744f.txt\"]', '120', 'JAVA初体验，环境讲解，用途等等', null, '221', '2', '-1', '2019-05-14 21:25:42');
+INSERT INTO `video` VALUES ('2', '1', '83edcaa6-394c-4098-9769-763bd442ce14.mp4', 'JDK', '[]', '12', 'JDK (Java Development Kit)\nJDK 是整个Java的核心，包括了Java运行环境（Java Runtime Envirnment），一堆Java工具和Java基础的类库(rt.jar)。不论什么Java应用服务器实质都是内置了某个版本的JDK。因此掌握 JDK是学好Java的第一步。最主流的JDK是Sun公司发布的JDK，除了Sun之外，还有很多公司和组织都开发了自己的JDK，例如IBM公司开发的JDK，BEA公司的Jrocket，还有GNU组织开发的JDK等等。其中IBM的JDK包含的JVM（Java Virtual Machine）运行效率要比Sun JDK包含的JVM高出许多。而专门运行在x86平台的Jrocket在服务端运行效率也要比Sun JDK好很多。但不管怎么说，我们还是需要先把Sun JDK掌握好。', null, '38', '0', '1', '2019-05-27 21:55:09');
+INSERT INTO `video` VALUES ('3', '1', '5572d27a-da5f-4236-8b39-4290962d8994.mp4', 'Tomcat', '[]', '12', 'Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，Tomcat是Apache 软件基金会（Apache Software Foundation）的Jakarta 项目中的一个核心项目，它早期的名称为catalina，后来由Apache、Sun 和其他一些公司及个人共同开发而成，并更名为Tomcat。Tomcat 是一个小型的轻量级应用服务器，在中小型系统和并发访问用户不是很多的场合下被普遍使用，是开发和调试JSP 程序的首选，因为Tomcat 技术先进、性能稳定，成为目前比较流行的Web 应用服务器。Tomcat是应用（java）服务器，它只是一个servlet容器，是Apache的扩展，但它是独立运行的。目前最新的版本为Tomcat 8.0.24 Released。', null, '3', '0', '1', '2019-05-28 21:25:07');
+INSERT INTO `video` VALUES ('4', '1', 'aefa8e93-44c9-4e58-b7ad-89cad81a4a8e.mp4', '面向对象和面向过程', '[]', '12', '面向对象和面向过程', null, '3', '0', '1', '2019-05-28 21:35:55');
+INSERT INTO `video` VALUES ('5', '1', '4d9fd5a9-b9f4-4ad4-86aa-b7a46d8e5a9b.mp4', '继承', '[]', '11', '继承', null, '1', '0', '1', '2019-05-28 21:36:32');
 INSERT INTO `video` VALUES ('6', '1', '65b5594d-e01d-4d8e-8bfa-bb0a4b1b370d.mp4', '集合', '[]', '9', '集合', null, '0', '0', '1', '2019-05-28 21:38:43');
-INSERT INTO `video` VALUES ('7', '1', '9ff61701-2f1b-470d-844b-938e23a06186.mp4', '字符串', '[]', '6', '字符串', null, '0', '0', '1', '2019-05-28 21:40:13');
+INSERT INTO `video` VALUES ('7', '1', '9ff61701-2f1b-470d-844b-938e23a06186.mp4', '字符串', '[]', '6', '字符串', null, '10', '0', '1', '2019-05-28 21:40:13');
