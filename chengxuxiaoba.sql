@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80015
 File Encoding         : 65001
 
-Date: 2019-06-16 22:09:08
+Date: 2019-06-18 22:29:40
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -97,21 +97,21 @@ CREATE TABLE `accountrole_relationship` (
   `updateDateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_account` (`accountId`,`roleId`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of accountrole_relationship
 -- ----------------------------
 INSERT INTO `accountrole_relationship` VALUES ('5', '1', '1', '1', '2019-05-18 21:06:57', '2019-05-18 21:06:57');
 INSERT INTO `accountrole_relationship` VALUES ('6', '22', '1', '1', '2019-05-18 21:35:39', '2019-05-18 21:35:39');
-INSERT INTO `accountrole_relationship` VALUES ('13', '4', '2', '1', '2019-05-19 22:25:50', '2019-05-19 22:25:50');
+INSERT INTO `accountrole_relationship` VALUES ('13', '4', '1', '1', '2019-05-19 22:25:50', '2019-05-19 22:25:50');
 INSERT INTO `accountrole_relationship` VALUES ('14', '4', '3', '1', '2019-05-19 22:25:50', '2019-05-19 22:25:50');
 INSERT INTO `accountrole_relationship` VALUES ('28', '26', '3', '1', '2019-05-21 21:43:11', '2019-05-21 21:43:11');
-INSERT INTO `accountrole_relationship` VALUES ('32', '6', '1', '1', '2019-05-21 21:51:47', '2019-05-21 21:51:47');
-INSERT INTO `accountrole_relationship` VALUES ('33', '6', '3', '1', '2019-05-21 21:51:47', '2019-05-21 21:51:47');
 INSERT INTO `accountrole_relationship` VALUES ('35', '5', '1', '1', '2019-06-12 22:16:42', '2019-06-12 22:16:42');
-INSERT INTO `accountrole_relationship` VALUES ('47', '28', '4', '1', '2019-06-13 21:36:12', '2019-06-13 21:36:12');
-INSERT INTO `accountrole_relationship` VALUES ('48', '29', '4', '1', '2019-06-13 21:36:23', '2019-06-13 21:36:23');
+INSERT INTO `accountrole_relationship` VALUES ('47', '28', '1', '1', '2019-06-13 21:36:12', '2019-06-13 21:36:12');
+INSERT INTO `accountrole_relationship` VALUES ('48', '29', '1', '1', '2019-06-13 21:36:23', '2019-06-13 21:36:23');
+INSERT INTO `accountrole_relationship` VALUES ('57', '6', '2', '1', '2019-06-18 22:15:24', '2019-06-18 22:15:24');
+INSERT INTO `accountrole_relationship` VALUES ('58', '6', '3', '1', '2019-06-18 22:15:24', '2019-06-18 22:15:24');
 
 -- ----------------------------
 -- Table structure for accountviptimerange
@@ -127,13 +127,14 @@ CREATE TABLE `accountviptimerange` (
   `updateDateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_account` (`accountId`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of accountviptimerange
 -- ----------------------------
 INSERT INTO `accountviptimerange` VALUES ('1', '26', '2019-05-01 08:00:00', '2019-06-29 08:00:00', '1', '2019-05-19 22:52:50', '2019-05-21 21:43:11');
 INSERT INTO `accountviptimerange` VALUES ('2', '5', '2019-06-01 08:00:00', '2019-06-30 08:00:00', '1', '2019-06-12 22:16:42', '2019-06-12 22:16:42');
+INSERT INTO `accountviptimerange` VALUES ('3', '6', '2019-06-06 08:00:00', '2019-07-01 08:00:00', '1', '2019-06-18 22:03:02', '2019-06-18 22:15:17');
 
 -- ----------------------------
 -- Table structure for answer
@@ -379,6 +380,7 @@ CREATE TABLE `paymentrecord` (
 DROP TABLE IF EXISTS `permission`;
 CREATE TABLE `permission` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `description` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `status` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
@@ -387,12 +389,12 @@ CREATE TABLE `permission` (
 -- ----------------------------
 -- Records of permission
 -- ----------------------------
-INSERT INTO `permission` VALUES ('1', '每日免费观看3段视频', '1');
-INSERT INTO `permission` VALUES ('2', '无限制观看视频', '1');
-INSERT INTO `permission` VALUES ('3', '无限制下载任何资料', '1');
-INSERT INTO `permission` VALUES ('4', '视频快进播放', '1');
-INSERT INTO `permission` VALUES ('5', '在线提交评论', '1');
-INSERT INTO `permission` VALUES ('6', '在线向老师提问', '1');
+INSERT INTO `permission` VALUES ('1', 'THREEPERDAY', '每日免费观看3段视频', '1');
+INSERT INTO `permission` VALUES ('2', 'WATCHINGNOLIMITED', '无限制观看视频', '1');
+INSERT INTO `permission` VALUES ('3', 'DOWNLOADINGNOLIMITED', '无限制下载任何资料', '1');
+INSERT INTO `permission` VALUES ('4', 'FASTFORWARD', '视频快进播放', '1');
+INSERT INTO `permission` VALUES ('5', 'SUBMITEVALUATION', '在线提交评论', '1');
+INSERT INTO `permission` VALUES ('6', 'SUBMITISSUE', '在线向老师提问', '1');
 
 -- ----------------------------
 -- Table structure for role
@@ -401,33 +403,41 @@ DROP TABLE IF EXISTS `role`;
 CREATE TABLE `role` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `statue` int(11) NOT NULL DEFAULT '1',
+  `description` varchar(255) DEFAULT NULL,
+  `priority` int(11) NOT NULL DEFAULT '1',
+  `status` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of role
 -- ----------------------------
-INSERT INTO `role` VALUES ('1', 'vistor', '1');
-INSERT INTO `role` VALUES ('2', 'vipmember', '1');
-INSERT INTO `role` VALUES ('3', 'admin', '1');
+INSERT INTO `role` VALUES ('1', 'vistor', '游 客', '0', '1');
+INSERT INTO `role` VALUES ('2', 'vipmember', 'VIP会员', '1', '1');
+INSERT INTO `role` VALUES ('3', 'admin', '管理员', '-1', '1');
 
 -- ----------------------------
 -- Table structure for rolepermission_relationship
 -- ----------------------------
 DROP TABLE IF EXISTS `rolepermission_relationship`;
 CREATE TABLE `rolepermission_relationship` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `role` int(11) DEFAULT NULL,
   `permission` int(11) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   `createDateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of rolepermission_relationship
 -- ----------------------------
+INSERT INTO `rolepermission_relationship` VALUES ('1', '1', '1', '1', '2019-06-17 21:49:20');
+INSERT INTO `rolepermission_relationship` VALUES ('2', '2', '2', '1', '2019-06-17 21:49:40');
+INSERT INTO `rolepermission_relationship` VALUES ('3', '2', '3', '1', '2019-06-17 21:49:46');
+INSERT INTO `rolepermission_relationship` VALUES ('4', '2', '4', '1', '2019-06-17 21:50:18');
+INSERT INTO `rolepermission_relationship` VALUES ('5', '2', '5', '1', '2019-06-17 21:50:22');
+INSERT INTO `rolepermission_relationship` VALUES ('6', '2', '6', '1', '2019-06-17 21:50:27');
 
 -- ----------------------------
 -- Table structure for uploadfile
@@ -570,6 +580,6 @@ INSERT INTO `video` VALUES ('1', '1', '5575c293-cca3-4418-84b4-5e0a9c8f5618.mp4'
 INSERT INTO `video` VALUES ('2', '1', '83edcaa6-394c-4098-9769-763bd442ce14.mp4', 'JDK', '[]', '12', 'JDK (Java Development Kit)\nJDK 是整个Java的核心，包括了Java运行环境（Java Runtime Envirnment），一堆Java工具和Java基础的类库(rt.jar)。不论什么Java应用服务器实质都是内置了某个版本的JDK。因此掌握 JDK是学好Java的第一步。最主流的JDK是Sun公司发布的JDK，除了Sun之外，还有很多公司和组织都开发了自己的JDK，例如IBM公司开发的JDK，BEA公司的Jrocket，还有GNU组织开发的JDK等等。其中IBM的JDK包含的JVM（Java Virtual Machine）运行效率要比Sun JDK包含的JVM高出许多。而专门运行在x86平台的Jrocket在服务端运行效率也要比Sun JDK好很多。但不管怎么说，我们还是需要先把Sun JDK掌握好。', null, '38', '0', '1', '2019-05-27 21:55:09');
 INSERT INTO `video` VALUES ('3', '1', '5572d27a-da5f-4236-8b39-4290962d8994.mp4', 'Tomcat', '[]', '12', 'Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，Tomcat是Apache 软件基金会（Apache Software Foundation）的Jakarta 项目中的一个核心项目，它早期的名称为catalina，后来由Apache、Sun 和其他一些公司及个人共同开发而成，并更名为Tomcat。Tomcat 是一个小型的轻量级应用服务器，在中小型系统和并发访问用户不是很多的场合下被普遍使用，是开发和调试JSP 程序的首选，因为Tomcat 技术先进、性能稳定，成为目前比较流行的Web 应用服务器。Tomcat是应用（java）服务器，它只是一个servlet容器，是Apache的扩展，但它是独立运行的。目前最新的版本为Tomcat 8.0.24 Released。', null, '3', '0', '1', '2019-05-28 21:25:07');
 INSERT INTO `video` VALUES ('4', '1', 'aefa8e93-44c9-4e58-b7ad-89cad81a4a8e.mp4', '面向对象和面向过程', '[]', '12', '面向对象和面向过程', null, '3', '0', '1', '2019-05-28 21:35:55');
-INSERT INTO `video` VALUES ('5', '1', '4d9fd5a9-b9f4-4ad4-86aa-b7a46d8e5a9b.mp4', '继承', '[]', '11', '继承', null, '1', '0', '1', '2019-05-28 21:36:32');
+INSERT INTO `video` VALUES ('5', '1', '4d9fd5a9-b9f4-4ad4-86aa-b7a46d8e5a9b.mp4', '继承', '[]', '11', '继承', null, '2', '0', '1', '2019-05-28 21:36:32');
 INSERT INTO `video` VALUES ('6', '1', '65b5594d-e01d-4d8e-8bfa-bb0a4b1b370d.mp4', '集合', '[]', '9', '集合', null, '0', '0', '1', '2019-05-28 21:38:43');
 INSERT INTO `video` VALUES ('7', '1', '9ff61701-2f1b-470d-844b-938e23a06186.mp4', '字符串', '[]', '6', '字符串', null, '10', '0', '1', '2019-05-28 21:40:13');
