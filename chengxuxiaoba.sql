@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80015
 File Encoding         : 65001
 
-Date: 2019-06-18 22:29:40
+Date: 2019-07-06 21:37:26
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -48,8 +48,8 @@ INSERT INTO `account` VALUES ('20', 'WWOTTF', null, '15001112633', '111111', nul
 INSERT INTO `account` VALUES ('22', 'JLZGPQ', null, '13720004712', 'password', null, null, '1', '2019-05-18 21:35:39', '2019-05-18 21:35:39');
 INSERT INTO `account` VALUES ('26', 'PHQXWT', null, '13720004711', 'password', null, null, '-1', '2019-05-19 17:58:08', '2019-05-19 17:58:08');
 INSERT INTO `account` VALUES ('27', 'UAFGPT', null, '13000001272', '123456', null, null, '1', '2019-05-21 21:54:25', '2019-05-21 21:54:25');
-INSERT INTO `account` VALUES ('28', 'BYAJHN', null, '13000001273', '123456', null, null, '1', '2019-05-21 21:54:25', '2019-05-21 21:54:25');
-INSERT INTO `account` VALUES ('29', 'YZNCWJ', null, '13441112728', '1qaz2wsx', null, null, '1', '2019-06-03 22:26:28', '2019-06-03 22:26:28');
+INSERT INTO `account` VALUES ('28', 'BYAJHN', null, '13000001273', '123456', null, null, '-1', '2019-05-21 21:54:25', '2019-05-21 21:54:25');
+INSERT INTO `account` VALUES ('29', 'YZNCWJ', null, '13441112728', '1qaz2wsx', null, null, '-1', '2019-06-03 22:26:28', '2019-06-03 22:26:28');
 
 -- ----------------------------
 -- Table structure for accountmessage_relationship
@@ -97,7 +97,7 @@ CREATE TABLE `accountrole_relationship` (
   `updateDateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_account` (`accountId`,`roleId`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of accountrole_relationship
@@ -108,10 +108,9 @@ INSERT INTO `accountrole_relationship` VALUES ('13', '4', '1', '1', '2019-05-19 
 INSERT INTO `accountrole_relationship` VALUES ('14', '4', '3', '1', '2019-05-19 22:25:50', '2019-05-19 22:25:50');
 INSERT INTO `accountrole_relationship` VALUES ('28', '26', '3', '1', '2019-05-21 21:43:11', '2019-05-21 21:43:11');
 INSERT INTO `accountrole_relationship` VALUES ('35', '5', '1', '1', '2019-06-12 22:16:42', '2019-06-12 22:16:42');
-INSERT INTO `accountrole_relationship` VALUES ('47', '28', '1', '1', '2019-06-13 21:36:12', '2019-06-13 21:36:12');
-INSERT INTO `accountrole_relationship` VALUES ('48', '29', '1', '1', '2019-06-13 21:36:23', '2019-06-13 21:36:23');
-INSERT INTO `accountrole_relationship` VALUES ('57', '6', '2', '1', '2019-06-18 22:15:24', '2019-06-18 22:15:24');
 INSERT INTO `accountrole_relationship` VALUES ('58', '6', '3', '1', '2019-06-18 22:15:24', '2019-06-18 22:15:24');
+INSERT INTO `accountrole_relationship` VALUES ('59', '29', '1', '1', '2019-07-06 21:34:18', '2019-07-06 21:34:18');
+INSERT INTO `accountrole_relationship` VALUES ('60', '28', '1', '1', '2019-07-06 21:34:22', '2019-07-06 21:34:22');
 
 -- ----------------------------
 -- Table structure for accountviptimerange
@@ -256,7 +255,7 @@ INSERT INTO `coursemodule` VALUES ('3', '1', 'JAVA', '高级课程', '高级课�
 INSERT INTO `coursemodule` VALUES ('4', '1', 'JAVA', '中级课程', '中级课程', '[\"8fc2352b-ef86-4ad6-9b14-aa5e9d170a59.jpg\"]', '1', '2019-05-23 22:58:07');
 INSERT INTO `coursemodule` VALUES ('5', '2', '数据库', 'MYSQL', 'MYSQL', '[\"199d7e77-8171-4b22-8556-c4388f3a0ce6.jpg\"]', '1', '2019-05-23 23:00:07');
 INSERT INTO `coursemodule` VALUES ('6', '2', '数据库', 'Redis', 'Redis', '[\"74a4b7af-7bc9-4e8d-b096-632d47e09ba8.jpg\",\"e8d8de8f-6757-424e-9ab9-c39723e8f882.jpg\"]', '1', '2019-05-23 23:01:58');
-INSERT INTO `coursemodule` VALUES ('7', '3', '前端', 'css', 'css', '[\"67a418f2-d0b2-4574-bf4b-ab22504f6700.jpg\"]', '1', '2019-05-30 20:49:34');
+INSERT INTO `coursemodule` VALUES ('7', '3', '前端', 'css', 'css', '[\"67a418f2-d0b2-4574-bf4b-ab22504f6700.jpg\"]', '-1', '2019-05-30 20:49:34');
 
 -- ----------------------------
 -- Table structure for evaluate
@@ -412,9 +411,47 @@ CREATE TABLE `role` (
 -- ----------------------------
 -- Records of role
 -- ----------------------------
-INSERT INTO `role` VALUES ('1', 'vistor', '游 客', '0', '1');
+INSERT INTO `role` VALUES ('1', 'vistor', '普通会员', '0', '1');
 INSERT INTO `role` VALUES ('2', 'vipmember', 'VIP会员', '1', '1');
 INSERT INTO `role` VALUES ('3', 'admin', '管理员', '-1', '1');
+
+-- ----------------------------
+-- Table structure for rolepayment
+-- ----------------------------
+DROP TABLE IF EXISTS `rolepayment`;
+CREATE TABLE `rolepayment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `roleId` int(11) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `status` int(255) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of rolepayment
+-- ----------------------------
+INSERT INTO `rolepayment` VALUES ('1', 'month', '2', '39.00', '月会员', '1');
+INSERT INTO `rolepayment` VALUES ('2', 'season', '2', '79.00', '季会员', '1');
+INSERT INTO `rolepayment` VALUES ('3', 'year', '2', '234.00', '年会员', '1');
+
+-- ----------------------------
+-- Table structure for rolepaymentimages
+-- ----------------------------
+DROP TABLE IF EXISTS `rolepaymentimages`;
+CREATE TABLE `rolepaymentimages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `rolePaymentId` int(11) NOT NULL,
+  `payType` int(11) NOT NULL,
+  `payWayImage` varchar(255) DEFAULT NULL,
+  `payQRImage` varchar(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of rolepaymentimages
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for rolepermission_relationship
@@ -576,7 +613,7 @@ CREATE TABLE `video` (
 -- ----------------------------
 -- Records of video
 -- ----------------------------
-INSERT INTO `video` VALUES ('1', '1', '5575c293-cca3-4418-84b4-5e0a9c8f5618.mp4', 'HELLO JAVA', '[\"08836f45-b53e-47e4-b613-62e30a3dc061.txt\",\"617b3cc3-75ff-4a10-88b5-22657330744f.txt\"]', '120', 'JAVA初体验，环境讲解，用途等等', null, '221', '2', '-1', '2019-05-14 21:25:42');
+INSERT INTO `video` VALUES ('1', '1', '5575c293-cca3-4418-84b4-5e0a9c8f5618.mp4', 'HELLO JAVA', '[\"08836f45-b53e-47e4-b613-62e30a3dc061.txt\",\"617b3cc3-75ff-4a10-88b5-22657330744f.txt\"]', '120', 'JAVA初体验，环境讲解，用途等等', null, '224', '2', '-1', '2019-05-14 21:25:42');
 INSERT INTO `video` VALUES ('2', '1', '83edcaa6-394c-4098-9769-763bd442ce14.mp4', 'JDK', '[]', '12', 'JDK (Java Development Kit)\nJDK 是整个Java的核心，包括了Java运行环境（Java Runtime Envirnment），一堆Java工具和Java基础的类库(rt.jar)。不论什么Java应用服务器实质都是内置了某个版本的JDK。因此掌握 JDK是学好Java的第一步。最主流的JDK是Sun公司发布的JDK，除了Sun之外，还有很多公司和组织都开发了自己的JDK，例如IBM公司开发的JDK，BEA公司的Jrocket，还有GNU组织开发的JDK等等。其中IBM的JDK包含的JVM（Java Virtual Machine）运行效率要比Sun JDK包含的JVM高出许多。而专门运行在x86平台的Jrocket在服务端运行效率也要比Sun JDK好很多。但不管怎么说，我们还是需要先把Sun JDK掌握好。', null, '38', '0', '1', '2019-05-27 21:55:09');
 INSERT INTO `video` VALUES ('3', '1', '5572d27a-da5f-4236-8b39-4290962d8994.mp4', 'Tomcat', '[]', '12', 'Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，Tomcat是Apache 软件基金会（Apache Software Foundation）的Jakarta 项目中的一个核心项目，它早期的名称为catalina，后来由Apache、Sun 和其他一些公司及个人共同开发而成，并更名为Tomcat。Tomcat 是一个小型的轻量级应用服务器，在中小型系统和并发访问用户不是很多的场合下被普遍使用，是开发和调试JSP 程序的首选，因为Tomcat 技术先进、性能稳定，成为目前比较流行的Web 应用服务器。Tomcat是应用（java）服务器，它只是一个servlet容器，是Apache的扩展，但它是独立运行的。目前最新的版本为Tomcat 8.0.24 Released。', null, '3', '0', '1', '2019-05-28 21:25:07');
 INSERT INTO `video` VALUES ('4', '1', 'aefa8e93-44c9-4e58-b7ad-89cad81a4a8e.mp4', '面向对象和面向过程', '[]', '12', '面向对象和面向过程', null, '3', '0', '1', '2019-05-28 21:35:55');
