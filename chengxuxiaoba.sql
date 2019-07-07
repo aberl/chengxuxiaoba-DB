@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80015
 File Encoding         : 65001
 
-Date: 2019-07-06 21:37:26
+Date: 2019-07-07 21:50:02
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -45,7 +45,7 @@ INSERT INTO `account` VALUES ('17', 'HMTPTU', null, '15001112620', '123456', nul
 INSERT INTO `account` VALUES ('18', 'OXSUMZ', null, '15001112777', '121233', null, null, '1', '2019-04-06 21:53:37', '2019-04-06 21:53:37');
 INSERT INTO `account` VALUES ('19', 'DYPSYG', null, '15001112625', '123456', null, null, '-1', '2019-04-06 23:53:55', '2019-04-06 23:53:55');
 INSERT INTO `account` VALUES ('20', 'WWOTTF', null, '15001112633', '111111', null, null, '1', '2019-05-14 22:05:19', '2019-05-14 22:05:19');
-INSERT INTO `account` VALUES ('22', 'JLZGPQ', null, '13720004712', 'password', null, null, '1', '2019-05-18 21:35:39', '2019-05-18 21:35:39');
+INSERT INTO `account` VALUES ('22', 'JLZGPQ', null, '13720004712', '111111', null, null, '1', '2019-05-18 21:35:39', '2019-05-18 21:35:39');
 INSERT INTO `account` VALUES ('26', 'PHQXWT', null, '13720004711', 'password', null, null, '-1', '2019-05-19 17:58:08', '2019-05-19 17:58:08');
 INSERT INTO `account` VALUES ('27', 'UAFGPT', null, '13000001272', '123456', null, null, '1', '2019-05-21 21:54:25', '2019-05-21 21:54:25');
 INSERT INTO `account` VALUES ('28', 'BYAJHN', null, '13000001273', '123456', null, null, '-1', '2019-05-21 21:54:25', '2019-05-21 21:54:25');
@@ -613,10 +613,45 @@ CREATE TABLE `video` (
 -- ----------------------------
 -- Records of video
 -- ----------------------------
-INSERT INTO `video` VALUES ('1', '1', '5575c293-cca3-4418-84b4-5e0a9c8f5618.mp4', 'HELLO JAVA', '[\"08836f45-b53e-47e4-b613-62e30a3dc061.txt\",\"617b3cc3-75ff-4a10-88b5-22657330744f.txt\"]', '120', 'JAVA初体验，环境讲解，用途等等', null, '224', '2', '-1', '2019-05-14 21:25:42');
+INSERT INTO `video` VALUES ('1', '1', '5575c293-cca3-4418-84b4-5e0a9c8f5618.mp4', 'HELLO JAVA', '[\"08836f45-b53e-47e4-b613-62e30a3dc061.txt\",\"617b3cc3-75ff-4a10-88b5-22657330744f.txt\"]', '120', 'JAVA初体验，环境讲解，用途等等', null, '228', '2', '-1', '2019-05-14 21:25:42');
 INSERT INTO `video` VALUES ('2', '1', '83edcaa6-394c-4098-9769-763bd442ce14.mp4', 'JDK', '[]', '12', 'JDK (Java Development Kit)\nJDK 是整个Java的核心，包括了Java运行环境（Java Runtime Envirnment），一堆Java工具和Java基础的类库(rt.jar)。不论什么Java应用服务器实质都是内置了某个版本的JDK。因此掌握 JDK是学好Java的第一步。最主流的JDK是Sun公司发布的JDK，除了Sun之外，还有很多公司和组织都开发了自己的JDK，例如IBM公司开发的JDK，BEA公司的Jrocket，还有GNU组织开发的JDK等等。其中IBM的JDK包含的JVM（Java Virtual Machine）运行效率要比Sun JDK包含的JVM高出许多。而专门运行在x86平台的Jrocket在服务端运行效率也要比Sun JDK好很多。但不管怎么说，我们还是需要先把Sun JDK掌握好。', null, '38', '0', '1', '2019-05-27 21:55:09');
 INSERT INTO `video` VALUES ('3', '1', '5572d27a-da5f-4236-8b39-4290962d8994.mp4', 'Tomcat', '[]', '12', 'Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，Tomcat是Apache 软件基金会（Apache Software Foundation）的Jakarta 项目中的一个核心项目，它早期的名称为catalina，后来由Apache、Sun 和其他一些公司及个人共同开发而成，并更名为Tomcat。Tomcat 是一个小型的轻量级应用服务器，在中小型系统和并发访问用户不是很多的场合下被普遍使用，是开发和调试JSP 程序的首选，因为Tomcat 技术先进、性能稳定，成为目前比较流行的Web 应用服务器。Tomcat是应用（java）服务器，它只是一个servlet容器，是Apache的扩展，但它是独立运行的。目前最新的版本为Tomcat 8.0.24 Released。', null, '3', '0', '1', '2019-05-28 21:25:07');
 INSERT INTO `video` VALUES ('4', '1', 'aefa8e93-44c9-4e58-b7ad-89cad81a4a8e.mp4', '面向对象和面向过程', '[]', '12', '面向对象和面向过程', null, '3', '0', '1', '2019-05-28 21:35:55');
 INSERT INTO `video` VALUES ('5', '1', '4d9fd5a9-b9f4-4ad4-86aa-b7a46d8e5a9b.mp4', '继承', '[]', '11', '继承', null, '2', '0', '1', '2019-05-28 21:36:32');
 INSERT INTO `video` VALUES ('6', '1', '65b5594d-e01d-4d8e-8bfa-bb0a4b1b370d.mp4', '集合', '[]', '9', '集合', null, '0', '0', '1', '2019-05-28 21:38:43');
 INSERT INTO `video` VALUES ('7', '1', '9ff61701-2f1b-470d-844b-938e23a06186.mp4', '字符串', '[]', '6', '字符串', null, '10', '0', '1', '2019-05-28 21:40:13');
+
+-- ----------------------------
+-- Table structure for videowatchrecord
+-- ----------------------------
+DROP TABLE IF EXISTS `videowatchrecord`;
+CREATE TABLE `videowatchrecord` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `courseModuleId` int(11) NOT NULL,
+  `videoId` int(11) NOT NULL,
+  `accountId` int(11) NOT NULL,
+  `lastWatchTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of videowatchrecord
+-- ----------------------------
+INSERT INTO `videowatchrecord` VALUES ('1', '1', '1', '22', '2019-07-07 21:48:21');
+
+-- ----------------------------
+-- Table structure for videowatchrecordhistory
+-- ----------------------------
+DROP TABLE IF EXISTS `videowatchrecordhistory`;
+CREATE TABLE `videowatchrecordhistory` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `courseModuleId` int(11) NOT NULL,
+  `videoId` int(11) NOT NULL,
+  `accountId` int(11) NOT NULL,
+  `lastWatchTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of videowatchrecordhistory
+-- ----------------------------
