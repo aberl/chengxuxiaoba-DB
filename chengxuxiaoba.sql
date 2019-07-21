@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80015
 File Encoding         : 65001
 
-Date: 2019-07-07 21:50:02
+Date: 2019-07-21 13:39:18
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -255,7 +255,7 @@ INSERT INTO `coursemodule` VALUES ('3', '1', 'JAVA', '高级课程', '高级课�
 INSERT INTO `coursemodule` VALUES ('4', '1', 'JAVA', '中级课程', '中级课程', '[\"8fc2352b-ef86-4ad6-9b14-aa5e9d170a59.jpg\"]', '1', '2019-05-23 22:58:07');
 INSERT INTO `coursemodule` VALUES ('5', '2', '数据库', 'MYSQL', 'MYSQL', '[\"199d7e77-8171-4b22-8556-c4388f3a0ce6.jpg\"]', '1', '2019-05-23 23:00:07');
 INSERT INTO `coursemodule` VALUES ('6', '2', '数据库', 'Redis', 'Redis', '[\"74a4b7af-7bc9-4e8d-b096-632d47e09ba8.jpg\",\"e8d8de8f-6757-424e-9ab9-c39723e8f882.jpg\"]', '1', '2019-05-23 23:01:58');
-INSERT INTO `coursemodule` VALUES ('7', '3', '前端', 'css', 'css', '[\"67a418f2-d0b2-4574-bf4b-ab22504f6700.jpg\"]', '-1', '2019-05-30 20:49:34');
+INSERT INTO `coursemodule` VALUES ('7', '3', '前端', 'css', 'css', '[\"67a418f2-d0b2-4574-bf4b-ab22504f6700.jpg\"]', '1', '2019-05-30 20:49:34');
 
 -- ----------------------------
 -- Table structure for evaluate
@@ -271,7 +271,7 @@ CREATE TABLE `evaluate` (
   `status` int(11) NOT NULL DEFAULT '1',
   `createDateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of evaluate
@@ -289,6 +289,10 @@ INSERT INTO `evaluate` VALUES ('13', '1', '1300000127313000001273130000012731300
 INSERT INTO `evaluate` VALUES ('14', '1', '15001112727150011127271500111272715001112727', '5', '7', '0', '1', '2019-06-03 22:10:13');
 INSERT INTO `evaluate` VALUES ('15', '1', '428042804280428042804280', '2', '29', '0', '1', '2019-06-03 22:26:49');
 INSERT INTO `evaluate` VALUES ('16', '2', '您觉得视频怎么样您觉得视频怎么样您觉得视频怎么样', '5', '29', '0', '1', '2019-06-04 20:59:36');
+INSERT INTO `evaluate` VALUES ('17', '8', 'qwqwqwqw', '5', '22', '0', '1', '2019-07-07 22:07:49');
+INSERT INTO `evaluate` VALUES ('18', '9', 'qweqweqwewqe', '5', '6', '0', '1', '2019-07-11 20:41:10');
+INSERT INTO `evaluate` VALUES ('19', '9', 'very good, perfect, sound nice and very clear screen', '5', '22', '0', '1', '2019-07-11 20:43:22');
+INSERT INTO `evaluate` VALUES ('20', '10', '息技术有限公司 出版物经营许可证 新出发京零字第海170131号', '5', '22', '0', '1', '2019-07-11 20:45:28');
 
 -- ----------------------------
 -- Table structure for issue
@@ -304,7 +308,7 @@ CREATE TABLE `issue` (
   `status` int(11) NOT NULL DEFAULT '1',
   `createDateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of issue
@@ -322,6 +326,26 @@ INSERT INTO `issue` VALUES ('29', '1', '', '我这个我这个', '6', '1', '1', 
 INSERT INTO `issue` VALUES ('30', '1', '', '请赐教请赐教', '6', '1', '1', '2019-06-12 22:01:50');
 INSERT INTO `issue` VALUES ('31', '2', '', 'JDK讲的再深入一点', '6', '1', '1', '2019-06-12 22:06:08');
 INSERT INTO `issue` VALUES ('32', '2', '', '啪啪啊啊啊', '6', '1', '1', '2019-06-12 22:06:46');
+INSERT INTO `issue` VALUES ('33', '8', '', 'qwqwqwqw', '22', '0', '1', '2019-07-07 22:08:02');
+INSERT INTO `issue` VALUES ('34', '9', '', 'eeeewewe', '6', '0', '1', '2019-07-11 20:41:03');
+INSERT INTO `issue` VALUES ('35', '10', '', '息技术有限公司 出版物经营许可证 新出发', '22', '0', '1', '2019-07-11 20:45:32');
+
+-- ----------------------------
+-- Table structure for material
+-- ----------------------------
+DROP TABLE IF EXISTS `material`;
+CREATE TABLE `material` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  `createDateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of material
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for message
@@ -492,7 +516,7 @@ CREATE TABLE `uploadfile` (
   `updateDateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of uploadfile
@@ -533,6 +557,29 @@ INSERT INTO `uploadfile` VALUES ('33', '9ff61701-2f1b-470d-844b-938e23a06186.mp4
 INSERT INTO `uploadfile` VALUES ('34', '67a418f2-d0b2-4574-bf4b-ab22504f6700.jpg', 'front.jpg', '9823', 'COURSE_MODULE_DETAILS', 'D:/peoject/chengxuxiaoba/files/COURSE_MODULE_DETAILS/67a418f2-d0b2-4574-bf4b-ab22504f6700.jpg', '1', '2019-05-30 20:49:30', '2019-05-30 20:49:30');
 INSERT INTO `uploadfile` VALUES ('35', 'dc4679d0-03ab-437a-8505-63aaeaa2906c.jpg', 'javalevel.jpg', '14360', 'VIDEO_ATTACHMENTS', 'D:/peoject/chengxuxiaoba/files/VIDEO_ATTACHMENTS/dc4679d0-03ab-437a-8505-63aaeaa2906c.jpg', '1', '2019-05-30 20:58:15', '2019-05-30 20:58:15');
 INSERT INTO `uploadfile` VALUES ('36', '6ad98496-7f71-4c03-9b85-64a88a209b68.mp4', '9682b383-6f9f-4ef5-a00d-dceccef888f5.mp4', '9356508', 'COURSE_VIDEO', 'D:/peoject/chengxuxiaoba/files/COURSE_VIDEO/6ad98496-7f71-4c03-9b85-64a88a209b68.mp4', '1', '2019-05-30 21:03:00', '2019-05-30 21:03:00');
+INSERT INTO `uploadfile` VALUES ('37', 'f50336cd-f7c0-4d5c-9f5e-53a1083c7bab.mp4', '8834d006-767a-4b29-888c-2229b8e34a8d.mp4', '9356508', 'COURSE_VIDEO', 'D:/peoject/chengxuxiaoba/files/COURSE_VIDEO/f50336cd-f7c0-4d5c-9f5e-53a1083c7bab.mp4', '1', '2019-07-07 21:57:17', '2019-07-07 21:57:17');
+INSERT INTO `uploadfile` VALUES ('38', '79ff559e-2af6-4d3e-ac5b-fa05cbd331b0.mp4', '45372974-0f68-4573-88d1-c9fde50ca86c.mp4', '9356508', 'COURSE_VIDEO', 'D:/peoject/chengxuxiaoba/files/COURSE_VIDEO/79ff559e-2af6-4d3e-ac5b-fa05cbd331b0.mp4', '1', '2019-07-11 20:35:49', '2019-07-11 20:35:49');
+INSERT INTO `uploadfile` VALUES ('39', '161a1168-e055-4fbb-8c72-d03e0b573fd7.mp4', '9682b383-6f9f-4ef5-a00d-dceccef888f5.mp4', '9356508', 'COURSE_VIDEO', 'D:/peoject/chengxuxiaoba/files/COURSE_VIDEO/161a1168-e055-4fbb-8c72-d03e0b573fd7.mp4', '1', '2019-07-11 20:44:01', '2019-07-11 20:44:01');
+INSERT INTO `uploadfile` VALUES ('40', 'bf60d508-72e9-43a4-9692-5b8def3922a0.png', 'index.png', '31075', 'VIDEO_ATTACHMENTS', 'D:/peoject/chengxuxiaoba/files/VIDEO_ATTACHMENTS/bf60d508-72e9-43a4-9692-5b8def3922a0.png', '1', '2019-07-11 20:44:15', '2019-07-11 20:44:15');
+INSERT INTO `uploadfile` VALUES ('41', '74322f42-0e22-401c-9f11-8aeaca8a3d7f.pdf', '个人所得税纳税清单.pdf', '12016', 'VIDEO_ATTACHMENTS', 'D:/peoject/chengxuxiaoba/files/VIDEO_ATTACHMENTS/74322f42-0e22-401c-9f11-8aeaca8a3d7f.pdf', '1', '2019-07-11 20:44:21', '2019-07-11 20:44:21');
+INSERT INTO `uploadfile` VALUES ('42', 'a52883ab-7866-4f9f-be4e-340bac632b0e.mp4', '161225183.mp4', '15970881', 'COURSE_VIDEO', 'D:/peoject/chengxuxiaoba/files/COURSE_VIDEO/a52883ab-7866-4f9f-be4e-340bac632b0e.mp4', '-1', '2019-07-21 13:02:55', '2019-07-21 13:31:42');
+INSERT INTO `uploadfile` VALUES ('43', 'ee291a4a-5de5-4e55-ad8c-5ef586002fd1.mp4', '8834d006-767a-4b29-888c-2229b8e34a8d.mp4', '9356508', 'COURSE_VIDEO', 'D:/peoject/chengxuxiaoba/files/COURSE_VIDEO/ee291a4a-5de5-4e55-ad8c-5ef586002fd1.mp4', '1', '2019-07-21 13:04:26', '2019-07-21 13:04:26');
+INSERT INTO `uploadfile` VALUES ('44', '30b9c04b-ca61-490b-98b8-33f3413698e8.mp4', '8834d006-767a-4b29-888c-2229b8e34a8d.mp4', '9356508', 'COURSE_VIDEO', 'D:/peoject/chengxuxiaoba/files/COURSE_VIDEO/30b9c04b-ca61-490b-98b8-33f3413698e8.mp4', '1', '2019-07-21 13:07:25', '2019-07-21 13:07:25');
+INSERT INTO `uploadfile` VALUES ('45', '0aa37b35-eb57-47cc-a9d7-7f53df193efb.mp4', '8834d006-767a-4b29-888c-2229b8e34a8d.mp4', '9356508', 'COURSE_VIDEO', 'D:/peoject/chengxuxiaoba/files/COURSE_VIDEO/0aa37b35-eb57-47cc-a9d7-7f53df193efb.mp4', '1', '2019-07-21 13:08:05', '2019-07-21 13:08:05');
+INSERT INTO `uploadfile` VALUES ('46', 'd39eed67-730e-4ef3-8392-78eb39c5b534.mp4', '8834d006-767a-4b29-888c-2229b8e34a8d.mp4', '9356508', 'COURSE_VIDEO', 'D:/peoject/chengxuxiaoba/files/COURSE_VIDEO/d39eed67-730e-4ef3-8392-78eb39c5b534.mp4', '1', '2019-07-21 13:10:05', '2019-07-21 13:10:05');
+INSERT INTO `uploadfile` VALUES ('47', '3da8485a-d478-4731-9d38-06f5c790b091.mp4', '9682b383-6f9f-4ef5-a00d-dceccef888f5.mp4', '9356508', 'COURSE_VIDEO', 'D:/peoject/chengxuxiaoba/files/COURSE_VIDEO/3da8485a-d478-4731-9d38-06f5c790b091.mp4', '1', '2019-07-21 13:11:37', '2019-07-21 13:11:37');
+INSERT INTO `uploadfile` VALUES ('48', '0c95b90a-4905-4e0f-90a0-7f4adc451b68.mp4', '9682b383-6f9f-4ef5-a00d-dceccef888f5.mp4', '9356508', 'COURSE_VIDEO', 'D:/peoject/chengxuxiaoba/files/COURSE_VIDEO/0c95b90a-4905-4e0f-90a0-7f4adc451b68.mp4', '1', '2019-07-21 13:14:14', '2019-07-21 13:14:14');
+INSERT INTO `uploadfile` VALUES ('49', '689b497d-9633-4cbb-bf1e-702d3774fefc.mp4', '9682b383-6f9f-4ef5-a00d-dceccef888f5.mp4', '9356508', 'COURSE_VIDEO', 'D:/peoject/chengxuxiaoba/files/COURSE_VIDEO/689b497d-9633-4cbb-bf1e-702d3774fefc.mp4', '1', '2019-07-21 13:16:07', '2019-07-21 13:16:07');
+INSERT INTO `uploadfile` VALUES ('50', 'e8ee2cb4-60bc-4271-bb83-21bb2702742c.pdf', '个人所得税纳税清单201401201412.pdf', '5520', 'VIDEO_ATTACHMENTS', 'D:/peoject/chengxuxiaoba/files/VIDEO_ATTACHMENTS/e8ee2cb4-60bc-4271-bb83-21bb2702742c.pdf', '1', '2019-07-21 13:17:03', '2019-07-21 13:17:03');
+INSERT INTO `uploadfile` VALUES ('51', 'ded4349c-65e7-4456-ac24-0ea8be9d5d8b.mp4', '8834d006-767a-4b29-888c-2229b8e34a8d.mp4', '9356508', 'COURSE_VIDEO', 'D:/peoject/chengxuxiaoba/files/COURSE_VIDEO/ded4349c-65e7-4456-ac24-0ea8be9d5d8b.mp4', '1', '2019-07-21 13:20:39', '2019-07-21 13:20:39');
+INSERT INTO `uploadfile` VALUES ('52', '9e8d5954-6894-4952-a0fd-1d1ddf726e65.mp4', 'c7ab9946-a3e9-4cee-ad34-4756a71bbbdc.mp4', '9356508', 'COURSE_VIDEO', 'D:/peoject/chengxuxiaoba/files/COURSE_VIDEO/9e8d5954-6894-4952-a0fd-1d1ddf726e65.mp4', '1', '2019-07-21 13:22:18', '2019-07-21 13:22:18');
+INSERT INTO `uploadfile` VALUES ('53', '06eb55bc-5676-4a9b-b822-64d6d1e7beb8.jpg', 'front.jpg', '9823', 'VIDEO_ATTACHMENTS', 'D:/peoject/chengxuxiaoba/files/VIDEO_ATTACHMENTS/06eb55bc-5676-4a9b-b822-64d6d1e7beb8.jpg', '1', '2019-07-21 13:22:26', '2019-07-21 13:22:26');
+INSERT INTO `uploadfile` VALUES ('54', '9fac25c2-a056-4e5f-9b30-f306dc455eb1.mp4', '161225183.mp4', '15970881', 'COURSE_VIDEO', 'D:/peoject/chengxuxiaoba/files/COURSE_VIDEO/9fac25c2-a056-4e5f-9b30-f306dc455eb1.mp4', '1', '2019-07-21 13:26:10', '2019-07-21 13:26:10');
+INSERT INTO `uploadfile` VALUES ('55', 'b66c9043-2f68-4399-b937-f2153fbaa9a3.mp4', 'f50336cd-f7c0-4d5c-9f5e-53a1083c7bab.mp4', '9356508', 'COURSE_VIDEO', 'D:/peoject/chengxuxiaoba/files/COURSE_VIDEO/b66c9043-2f68-4399-b937-f2153fbaa9a3.mp4', '1', '2019-07-21 13:29:46', '2019-07-21 13:29:46');
+INSERT INTO `uploadfile` VALUES ('56', '1d41b412-18ae-4f3a-87da-9fd8618004ab.mp4', '3da8485a-d478-4731-9d38-06f5c790b091.mp4', '9356508', 'COURSE_VIDEO', 'D:/peoject/chengxuxiaoba/files/COURSE_VIDEO/1d41b412-18ae-4f3a-87da-9fd8618004ab.mp4', '1', '2019-07-21 13:30:12', '2019-07-21 13:30:12');
+INSERT INTO `uploadfile` VALUES ('57', 'c9597a4a-5d63-4fcb-b706-2d79c718b249.mp4', '0aa37b35-eb57-47cc-a9d7-7f53df193efb.mp4', '9356508', 'COURSE_VIDEO', 'D:/peoject/chengxuxiaoba/files/COURSE_VIDEO/c9597a4a-5d63-4fcb-b706-2d79c718b249.mp4', '-1', '2019-07-21 13:31:45', '2019-07-21 13:32:15');
+INSERT INTO `uploadfile` VALUES ('58', '536d99e6-cd3b-4dc5-bc33-d0aaa5b52770.mp4', '161225183.mp4', '15970881', 'COURSE_VIDEO', 'D:/peoject/chengxuxiaoba/files/COURSE_VIDEO/536d99e6-cd3b-4dc5-bc33-d0aaa5b52770.mp4', '-1', '2019-07-21 13:32:20', '2019-07-21 13:33:00');
+INSERT INTO `uploadfile` VALUES ('59', 'aaae923a-5ed5-4b23-83a9-b0a6f2226a53.mp4', 'java入门.mp4', '9356508', 'COURSE_VIDEO', 'D:/peoject/chengxuxiaoba/files/COURSE_VIDEO/aaae923a-5ed5-4b23-83a9-b0a6f2226a53.mp4', '1', '2019-07-21 13:33:03', '2019-07-21 13:33:03');
 
 -- ----------------------------
 -- Table structure for validationcode
@@ -608,18 +655,24 @@ CREATE TABLE `video` (
   `createDateTime` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_index` (`courseModuleId`,`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of video
 -- ----------------------------
-INSERT INTO `video` VALUES ('1', '1', '5575c293-cca3-4418-84b4-5e0a9c8f5618.mp4', 'HELLO JAVA', '[\"08836f45-b53e-47e4-b613-62e30a3dc061.txt\",\"617b3cc3-75ff-4a10-88b5-22657330744f.txt\"]', '120', 'JAVA初体验，环境讲解，用途等等', null, '228', '2', '-1', '2019-05-14 21:25:42');
-INSERT INTO `video` VALUES ('2', '1', '83edcaa6-394c-4098-9769-763bd442ce14.mp4', 'JDK', '[]', '12', 'JDK (Java Development Kit)\nJDK 是整个Java的核心，包括了Java运行环境（Java Runtime Envirnment），一堆Java工具和Java基础的类库(rt.jar)。不论什么Java应用服务器实质都是内置了某个版本的JDK。因此掌握 JDK是学好Java的第一步。最主流的JDK是Sun公司发布的JDK，除了Sun之外，还有很多公司和组织都开发了自己的JDK，例如IBM公司开发的JDK，BEA公司的Jrocket，还有GNU组织开发的JDK等等。其中IBM的JDK包含的JVM（Java Virtual Machine）运行效率要比Sun JDK包含的JVM高出许多。而专门运行在x86平台的Jrocket在服务端运行效率也要比Sun JDK好很多。但不管怎么说，我们还是需要先把Sun JDK掌握好。', null, '38', '0', '1', '2019-05-27 21:55:09');
+INSERT INTO `video` VALUES ('1', '1', '5575c293-cca3-4418-84b4-5e0a9c8f5618.mp4', 'HELLO JAVA', '[\"08836f45-b53e-47e4-b613-62e30a3dc061.txt\",\"617b3cc3-75ff-4a10-88b5-22657330744f.txt\"]', '120', 'JAVA初体验，环境讲解，用途等等', null, '237', '2', '-1', '2019-05-14 21:25:42');
+INSERT INTO `video` VALUES ('2', '1', '83edcaa6-394c-4098-9769-763bd442ce14.mp4', 'JDK', '[]', '12', 'JDK (Java Development Kit)\nJDK 是整个Java的核心，包括了Java运行环境（Java Runtime Envirnment），一堆Java工具和Java基础的类库(rt.jar)。不论什么Java应用服务器实质都是内置了某个版本的JDK。因此掌握 JDK是学好Java的第一步。最主流的JDK是Sun公司发布的JDK，除了Sun之外，还有很多公司和组织都开发了自己的JDK，例如IBM公司开发的JDK，BEA公司的Jrocket，还有GNU组织开发的JDK等等。其中IBM的JDK包含的JVM（Java Virtual Machine）运行效率要比Sun JDK包含的JVM高出许多。而专门运行在x86平台的Jrocket在服务端运行效率也要比Sun JDK好很多。但不管怎么说，我们还是需要先把Sun JDK掌握好。', null, '44', '0', '1', '2019-05-27 21:55:09');
 INSERT INTO `video` VALUES ('3', '1', '5572d27a-da5f-4236-8b39-4290962d8994.mp4', 'Tomcat', '[]', '12', 'Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，Tomcat是Apache 软件基金会（Apache Software Foundation）的Jakarta 项目中的一个核心项目，它早期的名称为catalina，后来由Apache、Sun 和其他一些公司及个人共同开发而成，并更名为Tomcat。Tomcat 是一个小型的轻量级应用服务器，在中小型系统和并发访问用户不是很多的场合下被普遍使用，是开发和调试JSP 程序的首选，因为Tomcat 技术先进、性能稳定，成为目前比较流行的Web 应用服务器。Tomcat是应用（java）服务器，它只是一个servlet容器，是Apache的扩展，但它是独立运行的。目前最新的版本为Tomcat 8.0.24 Released。', null, '3', '0', '1', '2019-05-28 21:25:07');
-INSERT INTO `video` VALUES ('4', '1', 'aefa8e93-44c9-4e58-b7ad-89cad81a4a8e.mp4', '面向对象和面向过程', '[]', '12', '面向对象和面向过程', null, '3', '0', '1', '2019-05-28 21:35:55');
+INSERT INTO `video` VALUES ('4', '1', 'aefa8e93-44c9-4e58-b7ad-89cad81a4a8e.mp4', '面向对象和面向过程', '[]', '12', '面向对象和面向过程', null, '5', '0', '1', '2019-05-28 21:35:55');
 INSERT INTO `video` VALUES ('5', '1', '4d9fd5a9-b9f4-4ad4-86aa-b7a46d8e5a9b.mp4', '继承', '[]', '11', '继承', null, '2', '0', '1', '2019-05-28 21:36:32');
 INSERT INTO `video` VALUES ('6', '1', '65b5594d-e01d-4d8e-8bfa-bb0a4b1b370d.mp4', '集合', '[]', '9', '集合', null, '0', '0', '1', '2019-05-28 21:38:43');
 INSERT INTO `video` VALUES ('7', '1', '9ff61701-2f1b-470d-844b-938e23a06186.mp4', '字符串', '[]', '6', '字符串', null, '10', '0', '1', '2019-05-28 21:40:13');
+INSERT INTO `video` VALUES ('8', '3', 'f50336cd-f7c0-4d5c-9f5e-53a1083c7bab.mp4', '注解', '[]', '22', '注解', null, '5', '0', '1', '2019-07-07 21:57:23');
+INSERT INTO `video` VALUES ('9', '7', '79ff559e-2af6-4d3e-ac5b-fa05cbd331b0.mp4', 'css + html5', '[]', '22', 'css + html5', null, '5', '0', '1', '2019-07-11 20:35:52');
+INSERT INTO `video` VALUES ('10', '7', '161a1168-e055-4fbb-8c72-d03e0b573fd7.mp4', 'VUE + css3', '[\"bf60d508-72e9-43a4-9692-5b8def3922a0.png\",\"74322f42-0e22-401c-9f11-8aeaca8a3d7f.pdf\"]', '11', 'VUE + css3, 前端最轻量级框架，样式组件', null, '2', '0', '1', '2019-07-11 20:44:53');
+INSERT INTO `video` VALUES ('11', '2', 'aaae923a-5ed5-4b23-83a9-b0a6f2226a53.mp4', '数据库安装', '[]', '12', '数据库安装', null, '11', '0', '1', '2019-07-21 13:03:03');
+INSERT INTO `video` VALUES ('12', '2', '3da8485a-d478-4731-9d38-06f5c790b091.mp4', '基本语法', '[\"e8ee2cb4-60bc-4271-bb83-21bb2702742c.pdf\"]', '12', '12', null, '1', '0', '1', '2019-07-21 13:11:40');
+INSERT INTO `video` VALUES ('13', '2', '9e8d5954-6894-4952-a0fd-1d1ddf726e65.mp4', '索引', '[\"06eb55bc-5676-4a9b-b822-64d6d1e7beb8.jpg\"]', '12', '索引', null, '0', '0', '1', '2019-07-21 13:22:42');
 
 -- ----------------------------
 -- Table structure for videowatchrecord
@@ -632,12 +685,23 @@ CREATE TABLE `videowatchrecord` (
   `accountId` int(11) NOT NULL,
   `lastWatchTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of videowatchrecord
 -- ----------------------------
-INSERT INTO `videowatchrecord` VALUES ('1', '1', '1', '22', '2019-07-07 21:48:21');
+INSERT INTO `videowatchrecord` VALUES ('1', '1', '1', '22', '2019-07-09 21:46:33');
+INSERT INTO `videowatchrecord` VALUES ('2', '1', '2', '22', '2019-07-11 20:46:08');
+INSERT INTO `videowatchrecord` VALUES ('3', '3', '8', '22', '2019-07-07 22:06:57');
+INSERT INTO `videowatchrecord` VALUES ('4', '1', '2', '6', '2019-07-11 20:34:26');
+INSERT INTO `videowatchrecord` VALUES ('5', '1', '1', '6', '2019-07-21 13:05:00');
+INSERT INTO `videowatchrecord` VALUES ('6', '1', '4', '6', '2019-07-11 20:34:53');
+INSERT INTO `videowatchrecord` VALUES ('7', '3', '8', '6', '2019-07-11 20:35:09');
+INSERT INTO `videowatchrecord` VALUES ('8', '7', '9', '6', '2019-07-11 20:41:16');
+INSERT INTO `videowatchrecord` VALUES ('9', '7', '9', '22', '2019-07-11 20:42:48');
+INSERT INTO `videowatchrecord` VALUES ('10', '7', '10', '22', '2019-07-11 20:45:19');
+INSERT INTO `videowatchrecord` VALUES ('11', '2', '11', '6', '2019-07-21 13:33:12');
+INSERT INTO `videowatchrecord` VALUES ('12', '2', '12', '6', '2019-07-21 13:12:08');
 
 -- ----------------------------
 -- Table structure for videowatchrecordhistory
