@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80015
 File Encoding         : 65001
 
-Date: 2019-10-31 21:15:08
+Date: 2019-10-31 21:19:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,11 +32,12 @@ CREATE TABLE `account` (
   `updateDateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of account
 -- ----------------------------
+INSERT INTO `account` VALUES ('1', 'LRIPIB', null, '15001112627', 'MzMyNDI1MzczZGUxMGFkNGY4ZTQ2NDg2MDZmMTU5MTg=', null, null, '1', '2019-10-31 21:18:13', '2019-10-31 21:18:13');
 
 -- ----------------------------
 -- Table structure for accountmessage_relationship
@@ -51,11 +52,12 @@ CREATE TABLE `accountmessage_relationship` (
   `readDateTime` datetime DEFAULT NULL,
   `createDateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of accountmessage_relationship
 -- ----------------------------
+INSERT INTO `accountmessage_relationship` VALUES ('1', '1', '1', '1', '', '2019-10-31 21:18:19', '2019-10-31 21:18:13');
 
 -- ----------------------------
 -- Table structure for accountrole_relationship
@@ -70,11 +72,12 @@ CREATE TABLE `accountrole_relationship` (
   `updateDateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_account` (`accountId`,`roleId`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of accountrole_relationship
 -- ----------------------------
+INSERT INTO `accountrole_relationship` VALUES ('1', '1', '3', '1', '2019-10-31 21:18:13', '2019-10-31 21:18:13');
 
 -- ----------------------------
 -- Table structure for accountviptimerange
@@ -225,11 +228,12 @@ CREATE TABLE `message` (
   `category` int(11) NOT NULL DEFAULT '1' COMMENT '消息类别:\r\n0:系统消息\r\n1:用户消息',
   `createDateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of message
 -- ----------------------------
+INSERT INTO `message` VALUES ('1', '新用户注册', '尊敬的会员, 欢迎您成为程序小巴会员大家庭一员，具体会员信息以及福利请查看会员手册，祝您学习愉快', '1', '1', '2019-10-31 21:18:13');
 
 -- ----------------------------
 -- Table structure for paymentrecord
@@ -391,11 +395,12 @@ CREATE TABLE `validationcode` (
   `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `isActive` bit(1) NOT NULL DEFAULT b'1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of validationcode
 -- ----------------------------
+INSERT INTO `validationcode` VALUES ('1', 'register', '15001112627', '0658', '2019-10-31 21:47:49', '2019-10-31 21:17:49', '\0');
 
 -- ----------------------------
 -- Table structure for video
